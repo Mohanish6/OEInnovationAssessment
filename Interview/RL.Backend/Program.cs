@@ -27,6 +27,16 @@ builder.Services.AddCors(options =>
     });
 });
 
+
+// Add CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend",
+        policy => policy.WithOrigins("http://localhost:3000")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+});
+
 var app = builder.Build();
 
 app.UseSwagger();
@@ -41,6 +51,8 @@ app.UseHttpsRedirection();
 app.UseCors(corsPolicy);
 
 app.UseAuthorization();
+
+app.UseCors("AllowFrontend");
 
 app.MapControllers();
 

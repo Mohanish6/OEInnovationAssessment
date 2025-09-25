@@ -15,3 +15,6 @@ Interview/RL.Data/obj/
 
 # Mac OS X
 .DS_Store
+
+.vs/
+*.vsidx

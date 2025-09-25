@@ -9,6 +9,7 @@ public class RLContext : DbContext
     public DbSet<PlanProcedure> PlanProcedures { get; set; }
     public DbSet<Procedure> Procedures { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<ProcedureUser> ProcedureUsers { get; set; }
 
     public RLContext() { }
     public RLContext(DbContextOptions<RLContext> options) : base(options) { }
@@ -16,6 +17,17 @@ public class RLContext : DbContext
     protected override async void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+
+        builder.Entity<ProcedureUser>()
+        .HasOne(pu => pu.PlanProcedure)
+        .WithMany() // or WithMany(p => p.ProcedureUsers) if you add collection in PlanProcedure
+        .HasForeignKey(pu => pu.PlanProcedureId);
+
+        builder.Entity<ProcedureUser>()
+        .HasOne(pu => pu.User)
+        .WithMany() // or WithMany(u => u.ProcedureUsers) if you add collection in User
+        .HasForeignKey(pu => pu.UserId);
+
 
         builder.Entity<PlanProcedure>(typeBuilder =>
         {
