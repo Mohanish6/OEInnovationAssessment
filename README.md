@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # OEC Interview - Fullstack React / .NET
 
 The objective of this assignment is to test your knowledge on some key technologies we use. 
@@ -62,3 +63,6 @@ Provide functionality to remove all users from a procedure at once.
 1. Create table structure to store the assigned users
 2. Create endpoint(s) to interact with new table structure
 3. Hook up endpoint(s) to the frontend so when a user is selected, they are correctly assigned to that procedure
+=======
+# OEInnovationAssessment
+>>>>>>> ada0f1aef11149a8c4f48d6a78c2f6de410a0252
