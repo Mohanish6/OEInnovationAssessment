@@ -18,3 +18,6 @@ Interview/RL.Data/obj/
 
 .vs/
 *.vsidx
+
+node_modules/
+git add .gitignore
